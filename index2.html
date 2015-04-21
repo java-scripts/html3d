@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="css3d">
+<head><meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="css/css3d.css">
+<style>
+.viewport-container{ width:100%;height:500px;}
+.console{position: absolute;z-index: 99999;left:120px;background: rgba(0, 0, 0, 0.5); color: white;}
+.surface{position: absolute;z-index: 99999;}
+.viewport{ {{prefix}}perspective: 700px;}
+.space3d, .object3d, .plane{ {{prefix}}transform-style: preserve-3d;}
+.object3d {/* {{prefix}}transition: all 0.2s ease; */}
+.trans{ /*{{prefix}}transition: all 0.1s ease; */}
+.plane{ /*{{prefix}}visibility: hidden;*/ }
+.leftPanel{}
+</style>
+</head>
+<body ng-controller="css3dController" ng-keydown="keyDown($event);">	
+ <nav class=" navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://java-scripts.github.io/">Home</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav" style="display:none;">           
+		   <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">File <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" onclick="$('#fileInput').click();">Open</a></li>
+				<li><a href="#" id="download" download="processed.png">Download</a></li>           
+              </ul>
+            </li>		
+          </ul>
+		  <ul class="nav navbar-nav navbar-right">           
+            <li><a href="https://github.com/java-scripts/image-processing/tree/gh-pages">	View On GitHub</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<div class="container" >
+	<div class="row">
+		<div class="col-md-4">
+			<div ng-controller="myController" class="leftPanel" ng-include="'objects/leftpanel.html'"></div>
+		</div>
+		<div class="col-md-8">
+			<canvas class="surface" id="canvas" width="100" height="75" style="position: absolute;z-index: 99999;"></canvas>
+			<div class="console" ng-include="'objects/console.html'"></div>	
+			<div class="viewport-container" ng-mousemove="mouseMove($event);" ng-dblclick="dblclick=!dblclick;" >    	
+				<div class="viewport">	
+					<div class="space3d" ng-model="space3d" style="{{prefix}}transform: translate3d(0px, 0px, 700px) rotateX({{l.r.x}}deg) rotateY({{l.r.y}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+						<div ng-modlel="house" class="object3d" ng-class="dblclick?'trans':''"
+						style="{{prefix}}transform: translate3d({{l.t.x}}px, {{l.t.y+50}}px, {{l.t.z}}px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	
+							<!--put 3d objects here-->					
+							<div ng-controller="myController">						
+								<div ng-include="'objects/construction.html'" class="object3d" style="{{prefix}}transform: translate3d(0px, 0px, 0px) 		rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+								</div>								
+							</div>	<!--controller end-->	
+
+							 
+							<!-- 3d objects end-->					
+						</div>				
+					</div>
+				</div>
+			</div>
+	
+		</div>
+	</div>	
+</div><!--container-->
+<script src="js/angular.min.js"></script>
+<script src="js/css3d.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>

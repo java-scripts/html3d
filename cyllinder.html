@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<link rel="stylesheet" href="css/css3d.css">
+<style>
+.viewport{ {{prefix}}perspective: 700px;}
+.space3d, .object3d, .plane{ {{prefix}}transform-style: preserve-3d;}
+.object3d { {{prefix}}transition: all 0.2s ease; }
+.plane{ border: 5px solid white;
+  box-shadow: 5px 5px 5px; }
+.viewport{background:rgb(255, 177, 0);}
+</style>
+<script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+</head>	
+<body ng-controller="MainController" ng-keydown="keyDown($event);">
+	<canvas id="canvas" width="200" height="140" style="position: absolute;z-index: 99999;" class="hide"></canvas>	
+	<div class="container" ng-mousemove="updateR($event);">    	
+		<div class="viewport">	
+			<div class="space3d" ng-model="space3d" style="{{prefix}}transform: translate3d(0px, 0px, 500px) rotateX(0deg) rotateY({{-l.t.x/10}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+				<div ng-modlel="house" class="object3d" 
+				style="{{prefix}}transform: translate3d(0px, {{l.t.x*0.05}}px, -500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	  				
+					<!--put 3d objects here-->	
+					<div ng-controller="mycontroller">						
+						<div  class="object3d" style="{{prefix}}transform: translate3d(0px, 250px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+							<div  ng-repeat="d in data" class="plane" 
+								style="background:#BBB5A2;width:{{d.w*100}}px;height:{{d.h*100}}px;margin-left:{{-d.w*50}}px;margin-top:{{-d.h*50}}px;	{{prefix}}transform: translate3d({{d.t.x*100}}px, {{d.t.y*100}}px, {{d.t.z*100}}px) rotateX({{d.r.x}}deg) rotateY({{d.r.y}}deg) rotateZ({{d.r.z}}deg) skewX(0deg) skewY(0deg);
+								background:url('{{d.img}}')0px 0px/100% 100%;">	
+									<h1 style="text-align:center"></h1>	
+								</div>										
+						  </div>					
+					</div>						
+					<!-- 3d objects end-->					
+				</div>				
+			</div>
+		</div>
+	</div>	
+<script>
+function rand(a,b){return Math.round(a+(b-a)*Math.random());}
+angular.module('myapp').controller('mycontroller',['$scope',function(s){
+imgs=['Chrysanthemum','Desert','Hydrangeas','Jellyfish','Koala','Lighthouse','Penguins','Tulips'];
+path ='file:///C:/Users/Public/Pictures/Sample%20Pictures/';
+s.data=[];
+var r=5,x0=0,z0=5,y0=-6,w=2.5,h=2,angleStep=w/r+0.01,hshift=h/Math.PI/2,counter=0;
+	for(var i=0;i<24;i+=angleStep){
+		img=path+imgs[counter%imgs.length]+'.jpg'; 	deg=i*180/Math.PI;	r=r+0.01;
+		x=x0+r*Math.cos(i);	z=z0+r*Math.sin(i);	y=y0+hshift*i;
+		s.data.push({t:{x:x,y:y,z:z},r:{x:0,y:90-deg,z:rand(-10,10)},w:w,h:h,img:img})
+		counter++;
+	}
+}])
+</script>	
+</body>
+</html>
+ 
+ 

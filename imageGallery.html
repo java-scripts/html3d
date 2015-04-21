@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+<link rel="stylesheet" href="css/css3d.css">
+<style>
+.viewport{ {{prefix}}perspective: 700px;}
+.space3d, .object3d, .plane{ {{prefix}}transform-style: preserve-3d;}
+.object3d { {{prefix}}transition: all 0.2s ease; }
+.plane{ border-left: 1px solid #999; }
+.plane-reflection{border-left: 1px solid #111}
+.viewport {background:{{prefix}}linear-gradient(red, orange,yellow, rgb(99, 85, 21),black)}
+</style>
+<script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+</head>	
+<body ng-controller="MainController" ng-keydown="keyDown($event);">
+	<canvas id="canvas" class="hide" width="200" height="140" style="position: absolute;z-index: 99999;"></canvas>	
+	<div class="container">    	
+		<div class="viewport">	
+			<div class="space3d" ng-model="space3d" style="{{prefix}}transform: translate3d(0px, 0px, 700px) rotateX(0deg) rotateY(45deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+				<div ng-modlel="house" class="object3d" 
+				style="{{prefix}}transform: translate3d({{l.t.x}}px, 0px, -500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	  				
+					<!--put 3d objects here-->	
+
+					<div class="object3d" style="{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+					
+						<div ng-repeat="d in [[0,'Chrysanthemum'],[1,'Desert'],[2,'Hydrangeas'],[3,'Jellyfish'],[4,'Koala'],[5,'Lighthouse'],[6,'Penguins'],[7,'Tulips']]">
+						
+						<div  class="plane" style="{{prefix}}transform: translate3d({{d[0]*520}}px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);background:url('file:///C:/Users/Public/Pictures/Sample%20Pictures/{{d[1]}}.jpg')0px 0px/100% 100%;"></div>
+						<div  class="plane plane-reflection" style="{{prefix}}transform: translate3d({{d[0]*520}}px, 505px, 0px) rotateX(180deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);background:url('file:///C:/Users/Public/Pictures/Sample%20Pictures/test1.jpg')0px 0px/100% 100%,url('file:///C:/Users/Public/Pictures/Sample%20Pictures/{{d[1]}}.jpg')0px 0px/100% 100%"></div>
+						
+						</div>
+						
+						
+						
+					</div>
+					
+					<!--
+					<div ng-include="'objects/room.html'" class="object3d" style="{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+					</div>	
+					-->	
+					<!-- 3d objects end-->					
+				</div>				
+			</div>
+		</div>
+	</div>	
+  </body>
+ </html>
+ 
+ 
