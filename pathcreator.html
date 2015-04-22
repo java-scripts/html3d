@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="css3d">
+<head><meta charset="UTF-8">
+<head>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/css3d.css">
+<style>
+.viewport-container{ width:100%;height:100%;position:absolute;top:0px;left:0px}
+.console{position: absolute;z-index: 99999;left:410px;background: rgba(0, 0, 0, 0.5);  padding: 5px;  color: white;}
+.surface{position: absolute;z-index: 99999;left: 10px;}
+.viewport{ {{prefix}}perspective: 700px;}
+.space3d, .object3d, .plane{ {{prefix}}transform-style: preserve-3d;}
+.trans{ /*{{prefix}}transition: all 0.1s ease; */}
+.plane{ /*{{prefix}}visibility: hidden;*/ }
+.leftpanel{ background: rgba(255, 255, 255, 0.2);  padding: 1px; }
+.locator,.navigator{width: 175px;  height: 100%;  position: absolute;  padding: 2px;top: 175px; z-index: 99999;left: 20px;}
+.locator{top: 350px;}
+.hcontrol{ /*{{prefix}}transition: all 0.2s ease;*/}
+body{background:url('./img/c1/1.png')0px 0px/50% 100%;">}
+</style>
+</head>	
+<body ng-controller="css3dController" ng-keydown="keyDown($event);" ng-keyup="keyUp();">		
+	<canvas class="surface" id="canvas" width="200" height="150" style="position: absolute;z-index: 99999;"></canvas>
+	<div class="console" ng-include="'objects/console.html'"></div>		
+	<div ng-controller="myController"  class="navigator" ng-include="'objects/navigator.html'"></div>
+	
+	<div ng-controller="myController"  class="locator" style="" ng-include="'objects/pathcreator.html'"></div>
+	
+	
+	
+	<div class="viewport-container" ng-mousemove="mouseMove($event);" ng-dblclick="dblClick()" >    	
+		<div class="viewport">	
+			<div class="space3d" ng-model="space3d" style="{{prefix}}transform: translate3d(0px, 0px, 700px) rotateX({{l.r.x}}deg) rotateY({{l.r.y}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+				<div ng-modlel="house" class="object3d" ng-class="hcontrol?'hcontrol':''"
+				style="{{prefix}}transform: translate3d({{l.t.x}}px, {{l.t.y+50}}px, {{l.t.z}}px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	
+					<!--put 3d objects here-->					
+					<div ng-controller="myController">							
+						<div class="object3d " style="{{prefix}}transform: translate3d(0px, {{-floor.y*100}}px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	
+							<div name="zone1" ng-include="surface.template" class="object3d " style="{{prefix}}transform: translate3d({{surface.p[0]*100}}px, {{surface.p[1]*100}}px, {{surface.p[2]*100}}px) rotateX({{surface.p[3]}}deg) rotateY({{surface.p[4]}}deg) rotateZ({{surface.p[5]}}deg) skewX(0deg) skewY(0deg);"></div>
+							<div ng-repeat="c in surface.connects" >
+								<div name="zone1" ng-include="surfaces[c].template" class="object3d " style="{{prefix}}transform: translate3d({{surfaces[c].p[0]*100}}px, {{surfaces[c].p[1]*100}}px, {{surfaces[c].p[2]*100}}px) rotateX({{surfaces[c].p[3]}}deg) rotateY({{surfaces[c].p[4]}}deg) rotateZ({{surfaces[c].p[5]}}deg) skewX(0deg) skewY(0deg);"></div>
+							</div>	
+						</div>					
+					</div>	<!--controller end-->	
+					<!-- 3d objects end-->					
+				</div>				
+			</div>
+		</div>
+	</div>
+<script src="js/angular.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/css3d.js"></script>
+<!--<script src="js/controller.js"></script>-->
+<script src="js/pathcreator.js"></script>
+
+  </body>
+</html>
+ 
+ 
