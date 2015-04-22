@@ -1,6 +1,7 @@
 (function(){
 var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');ctx.globalAlpha=0.5;
+var ctx = canvas.getContext('2d');
+ctx.globalAlpha=0.5;
 var keydown,mousemove,src;
 
 angular.module('css3d',[]).controller('css3dController',['$scope',function(s){

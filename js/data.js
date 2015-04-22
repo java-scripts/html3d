@@ -1,20 +1,35 @@
 floor0={	
-	liftroom:{name:'liftroom',template:'objects/liftroom.html',connects:['blocka','liftroomL','liftroomU'],map:'./img/sf/liftroom.png',
+	liftroom:{name:'liftroom',template:'objects/lift/liftroom3x3.html',connects:['liftroomL','liftroomU','AC1'],map:'./img/sf/liftroom.png',
 		p:[0,0,0,0,0,0],x:[0-7.5,0+7.5],z:[0-7.5,0+7.5],y:[0,5]},
-	liftroomL:{name:'liftroomL',template:'objects/liftroom.html',connects:['blocka'],map:'./img/sf/liftroom.png',
+	liftroomL:{name:'liftroomL',template:'objects/lift/liftroom3x3.html',connects:[],map:'./img/sf/liftroom.png',
 		p:[0,5.05,0,0,0,0],x:[0-7.5,0+7.5],z:[0-7.5,0+7.5],y:[5,10]},
-	liftroomU:{name:'liftroomL',template:'objects/liftroom.html',connects:['blocka'],map:'./img/sf/liftroom.png',
+	liftroomU:{name:'liftroomL',template:'objects/lift/liftroom3x3.html',connects:[],map:'./img/sf/liftroom.png',
 		p:[0,-5.05,0,0,0,0],x:[0-7.5,0+7.5],z:[0-7.5,0+7.5],y:[-5,0]},
-	blocka:{name:'blocka',template:'objects/blocka.html',connects:['liftroom','blockb','blockd'],map:'./img/sf/blocka.png',
-		p:[-17.5,0,-10,0,90,0],x:[-17.5-10,-17.5+10],y:[0,5],z:[-10-17.5,-10+17.5]},		
-	blockb:{name:'blockb',template:'objects/blocka.html',connects:['liftroom','blockc','blocka'],map:'./img/sf/blockb.png',
-		p:[10,0,-17.5,0,0,0],x:[10-17.5,10+17.5],z:[-17.5-10,-17.5+10],y:[0,5]},
-	blockc:{name:'blockc',template:'objects/blocka.html',connects:['liftroom','blockb','blockd','liftroomL','liftroomU'],map:'./img/sf/blockc.png',
-		p:[17.5,0,10,0,-90,0],x:[17.5-10,17.5+10],z:[10-17.5,10+17.5],y:[0,5]},
-	blockd:{name:'blockd',template:'objects/blocka.html',connects:['liftroom','blocka','blockc'],map:'./img/sf/blockd.png',
-		p:[-10,0,17.5,0,180,0],x:[-10-17.5,-10+17.5],z:[17.5-10,17.5+10],y:[0,5]},
-
-		};
+	AC1:{name:'AC1',template:'objects/rooms/corridor7x1.html',connects:['DC1','liftroom','AC2','BC1'],map:'./img/sf/AC1.png',
+		p:[-10,0,-10,0,90,0],x:[-10-2.5,-10+2.5],z:[-10-17.5,-10+17.5],y:[0,5]},
+	AC2:{name:'AC2',template:'objects/rooms/corridor6x1.html',connects:['liftroom','AC1','AZ'],map:'./img/sf/AC2.png',
+		p:[2.5,0,-30,0,0,0],x:[2.5-15,2.5+15],z:[-30-2.5,-30+2.5],y:[0,5]},
+	AZ:{name:'AZ',template:'objects/rooms/zone5x3.html',connects:['AC2'],map:'./img/sf/AZ.png',
+		p:[5,0,-20,0,180,0],x:[5-12.5,5+12.5],z:[-20-7.5,-20+7.5],y:[0,5]},
+	BC1:{name:'BC1',template:'objects/rooms/corridor7x1.html',connects:['AC1','liftroom','BC2','CC1'],map:'./img/sf/BC1.png',
+		p:[10,0,-10,0,0,0],x:[10-17.5,10+17.5],z:[-10-2.5,-10+2.5],y:[0,5]},	
+	BC2:{name:'BC2',template:'objects/rooms/corridor6x1.html',connects:['liftroom','BC1','BZ'],map:'./img/sf/BC2.png',
+		p:[30,0,2.5,0,-90,0],x:[30-2.5,30+2.5],z:[2.5-15,2.5+15],y:[0,5]},
+	BZ:{name:'BZ',template:'objects/rooms/zone5x3.html',connects:['BC2'],map:'./img/sf/BZ.png',
+		p:[20,0,5,0,90,0],x:[20-7.5,20+7.5],z:[5-12.5,5+12.5],y:[0,5]},	
+	CC1:{name:'CC1',template:'objects/rooms/corridor7x1.html',connects:['BC1','liftroom','CC2','DC1','liftroomL','liftroomU'],map:'./img/sf/CC1.png',
+		p:[10,0,10,0,-90,0],x:[10-2.5,10+2.5],z:[10-17.5,10+17.5],y:[0,5]},	
+	CC2:{name:'CC2',template:'objects/rooms/corridor6x1.html',connects:['liftroom','CC1','CZ'],map:'./img/sf/CC2.png',
+		p:[-2.5,0,30,0,180,0],x:[-2.5-15,-2.5+15],z:[30-2.5,30+2.5],y:[0,5]},
+	CZ:{name:'CZ',template:'objects/rooms/zone5x3.html',connects:['CC2'],map:'./img/sf/CZ.png',
+		p:[-5,0,20,0,0,0],x:[-5-12.5,-5+12.5],z:[20-7.5,20+7.5],y:[0,5]},	
+	DC1:{name:'DC1',template:'objects/rooms/corridor7x1.html',connects:['CC1','liftroom','DC2','AC1'],map:'./img/sf/DC1.png',
+		p:[-10,0,10,0,180,0],x:[-10-17.5,-10+17.5],z:[10-2.5,10+2.5],y:[0,5]},	
+	DC2:{name:'DC2',template:'objects/rooms/corridor6x1.html',connects:['liftroom','DC1','DZ'],map:'./img/sf/DC2.png',
+		p:[-30,0,-2.5,0,90,0],x:[-30-2.5,-30+2.5],z:[-2.5-15,-2.5+15],y:[0,5]},
+	DZ:{name:'DZ',template:'objects/rooms/zone5x3.html',connects:['DC2'],map:'./img/sf/DZ.png',
+		p:[-20,0,-5,0,-90,0],x:[-20-7.5,-20+7.5],z:[-5-12.5,-5+12.5],y:[0,5]},	
+};
 		
 		
 		
@@ -22,8 +37,7 @@ floor0={
 
 floors=[
 		{name:'floor0',y:0,surfaces:floor0},
-		{name:'floor1',y:5,surfaces:floor0},
-		{name:'floor2',y:10,surfaces:floor0},		
+			
 		];
 
 

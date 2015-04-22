@@ -1,11 +1,11 @@
 (function(){
-
+// x:859, y:20, z:-994, ry:287
 angular.module('css3d').controller('myController',['$scope',function(s){  
 	dropDownNodes = initDropDownNodes();
 	s.$parent.freeman=false;
-	s.$parent.l.t.x=-0;
-	s.$parent.l.t.z=-0;
-	s.$parent.l.r.y=90;	
+	s.$parent.l.t.x=859;
+	s.$parent.l.t.z=-994;
+	s.$parent.l.r.y=287;	
 	
 	s.$parent.floors=floors;
 	s.$parent.updateFloor(function(){

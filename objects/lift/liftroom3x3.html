@@ -1,0 +1,194 @@
+<div class="object3d " style="{{prefix}}transform: translate3d(0px, 0px, -250px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">			
+				
+
+
+<!-- lift doors--->
+<div ng-repeat="l in [-1,0,1]" class="object3d" style=" {{prefix}}transform: translate3d({{l*500}}px, 0px, 500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+	<div class="plane" style="width: 500px; height: 500px; margin-left: -250px; margin-top: -250px;
+	{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+	background:url('./img/liftroom/2lr.png')0px 0px/100% 100%;">	
+		<h1 style="text-align:center"></h1>	
+		<input type="button" value="x" style="width:30px;height:30px;position:absolute;top:215px;left:425px;opacity:0;" ng-click="as.ldr[l+1].reverse?as.ldr[l+1].x=50:as.ldr[l+1].x=-50;as.ldr[l+1].reverse=!as.ldr[l+1].reverse"/>
+	</div>
+	
+	
+	<div  class="object3d " style=" {{prefix}}transform: translate3d(-50px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+	<div class="plane" style="{{prefix}}transition: all 2s ease; width: 100px; height: 400px; margin-left: -50px; margin-top: -200px;
+	{{prefix}}transform: translate3d({{as.ldr[l+1].x||50}}px, 0px, 2px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+	background:url('./img/liftroom/2r.png')0px 0px/100% 100%;">	
+		<h1 style="text-align:center"></h1>	
+	</div>
+	</div>
+	<div  class="object3d " style=" {{prefix}}transform: translate3d(150px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+	<div class="plane " style="{{prefix}}transition: all 2s ease; width: 100px; height: 400px; margin-left: -50px; margin-top: -200px;
+	{{prefix}}transform: translate3d({{-as.ldr[l+1].x||-50}}px, 0px, 2px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+	background:url('./img/liftroom/2l.png')0px 0px/100% 100%;">	
+		<h1 style="text-align:center"></h1>	
+	</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- liftroom walls -->
+<div class="plane" style="width: 500px; height: 500px; margin-left: -250px; margin-top: -250px;
+				{{prefix}}transform: translate3d(750px, 0px, 250px) rotateX(0deg) rotateY(-90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/1.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center"> back1 </h1>	
+				</div>
+
+<div class="plane" style="width: 500px; height: 500px; margin-left: -250px; margin-top: -250px;
+				{{prefix}}transform: translate3d(750px, 0px, 750px) rotateX(0deg) rotateY(-90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/other/tiles1.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center"> back2 </h1>	
+				</div>
+
+
+
+
+<div class="plane" style="width: 1000px; height: 500px; margin-left: -500px; margin-top: -250px;
+				{{prefix}}transform: translate3d(250px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/other/tiles1.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center"> hai how are you</h1>	
+				</div>
+<div class="plane" style="width: 1500px; height: 500px; margin-left: -750px; margin-top: -250px;
+				{{prefix}}transform: translate3d(0px, 0px, 1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/5.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center"> hai how are you</h1>	
+				</div>
+								
+				
+<div  class="object3d " style=" {{prefix}}transform: translate3d(-750px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+			
+<div class="plane" style="width: 500px; height: 500px; margin-left: -250px; margin-top: -250px;
+				{{prefix}}transform: translate3d(0px, 0px, 250px) rotateX(0deg) rotateY(-90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/3lr.png')0px 0px/110% 100%;">	
+					<h1 style="text-align:center">32345</h1>	
+				</div>				
+				
+<div  class="object3d" style="{{prefix}}transition: all 2s ease;{{prefix}}transform: translate3d(0px, 0px, 450px) rotateX(0deg) rotateY({{as.dr.r||-90}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+	<div class="plane" style="background:#B5B5A2;width: 120px; height: 425px; margin-left: -60px; margin-top: -212.5px; 
+	{{prefix}}transform: translate3d(-125px, 32.5px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+	background:url('./img/liftroom/3r.png')0px 0px/100% 100%;" ng-click="as.dr.reverse?as.dr.r=-90:as.dr.r=-150;as.dr.reverse=!as.dr.reverse">
+		<h1 style="text-align:center"></h1>	
+		<input type="button" value="{{as.dr.reverse?'Close':'Open'}}" style="position:absolute;top:250px;left:0px;"/>
+	</div>
+</div>		
+<div  class="object3d" style="{{prefix}}transition: all 2s ease;{{prefix}}transform: translate3d(0px, 0px, 150px) rotateX(0deg) rotateY({{as.dl.r||-90}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+	<div class="plane" style="background:#B5B5A2;width: 120px; height: 425px; margin-left: -60px; margin-top: -212.5px; 
+	{{prefix}}transform: translate3d(60px, 32.5px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+	background:url('./img/liftroom/3l.png')0px 0px/100% 100%;" ng-click="as.dl.reverse?as.dl.r=-90:as.dl.r=-30;as.dl.reverse=!as.dl.reverse">
+		<h1 style="text-align:center"></h1>	
+		<input type="button" value="{{as.dl.reverse?'Close':'Open'}}" style="position:absolute;top:250px;left:70px;"/>
+	</div>
+</div>				
+				
+</div>				
+		<!--stair walls-->		
+		<div class="plane" style="width: 500px; height: 500px; margin-left: -250px; margin-top: -250px;
+				{{prefix}}transform: translate3d(-750px, 0px, -250px) rotateX(0deg) rotateY(90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/8.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center">8</h1>	
+				</div>	
+				
+			<div class="plane" style="width: 500px; height: 500px; margin-left: -250px; margin-top: -250px;
+				{{prefix}}transform: translate3d(-750px, 0px, 750px) rotateX(0deg) rotateY(90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/8.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center">82</h1>	
+				</div>
+				
+				
+<div class="plane" style="width: 1500px; height: 500px; margin-left: -750px; margin-top: -250px;
+				{{prefix}}transform: translate3d(0px, 0px, -500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/5.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center">9</h1>	
+				</div>
+
+		<!--grid  -->
+<div class="plane" style="width: 500px; height: 50px; margin-left: -250px; margin-top: -25px;
+				{{prefix}}transform: translate3d(755px, 0px, -250px) rotateX(0deg) rotateY(-90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/6.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center"></h1>	
+				</div>
+<div class="plane" style="width: 500px; height: 25px; margin-left: -250px; margin-top: -12.5px;
+				{{prefix}}transform: translate3d(755px, -230px, -250px) rotateX(0deg) rotateY(-90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/6.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center"></h1>	
+				</div>					
+				
+				<div class="plane" style="width: 500px; height: 250px; margin-left: -250px; margin-top: -125px;
+				{{prefix}}transform: translate3d(750px, -100px, -250px) rotateX(0deg) rotateY(-90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/6grill.png')0px 0px/50% 50%;">	
+					<h1 style="text-align:center"></h1>	
+				</div>
+
+				
+<div class="plane" style="width: 1500px; height: 500px; margin-left: -750px; margin-top: -250px;
+				{{prefix}}transform: translate3d(0px, 250px, 250px) rotateX(90deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/liftroom/f.png')0px 0px/100% 100%;">	
+					<h1 style="text-align:center">f</h1>	
+				</div>
+<div class="plane" style="width: 1500px; height: 500px; margin-left: -750px; margin-top: -250px;
+				{{prefix}}transform: translate3d(0px, -245px, 250px) rotateX(-90deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+				background:url('./img/room/ceil.png')0px 0px/50% 50%;">	
+					<h1 style="text-align:center">top</h1>	
+				</div>
+
+<!--stair room-->
+<div  class="object3d" style="{{prefix}}transform: translate3d(0px, 0px, -255px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+<div ng-repeat="s in [1,-1]" class="object3d" style="{{prefix}}transform: translate3d(0px, {{s*125}}px, {{s*125}}px) rotateX(0deg) rotateY({{-s*90}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	
+<div  class="object3d" style="{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(90deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+<div  ng-repeat="step in [[-2],[-1],[0],[1],[2]]" class="object3d" style="{{prefix}}transform: translate3d({{step[0]*100}}px, {{-step[0]*50}}px, 0px) rotateX(0deg) rotateY(-90deg) 	rotateZ(0deg) skewX(0deg) skewY(0deg);">
+	<div class="plane" style="width: 250px; height: 100px; margin-left: -125px; margin-top: -50px;
+					{{prefix}}transform: translate3d(0px, -25px, 0px) rotateX(90deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+					background:url('./img/liftroom/steptop.png')0px 0px/100% 100%;">	
+						<h1 style="text-align:center"></h1>	
+	</div>	
+	<div class="plane" style="width: 250px; height: 50px; margin-left: -125px; margin-top: -25px;
+					{{prefix}}transform: translate3d(0px, 0px, 50px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+					background:url('./img/liftroom/stepfront.png')0px 0px/100% 100%;">	
+						<h1 style="text-align:center"></h1>	
+	</div>	
+ </div>
+ <div  ng-repeat="step in [[-5,-1.5],[5,1]]" class="object3d" style="{{prefix}}transform: translate3d({{step[0]*100}}px,  {{-step[1]*100}}px, 0px) rotateX(0deg) rotateY(-90deg) 	rotateZ(0deg) skewX(0deg) skewY(0deg);">
+	<div class="plane" style="width: 250px; height: 500px; margin-left: -125px; margin-top: -250px;
+					{{prefix}}transform: translate3d(0px, -25px, 0px) rotateX(90deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+					background:url('./img/liftroom/steptop.png')0px 0px/100% 100%;">	
+						<h1 style="text-align:center"></h1>	
+	</div>		
+ </div> 
+ </div>
+ </div>
+</div>
+<!--stair room inclined planes-->				
+<div class="object3d " style="{{prefix}}transform: translate3d(0px, 2px, -250px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">			
+ <div class="object3d " style="{{prefix}}transform: translate3d(0px, -125px, -125px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">					
+	 <div class="object3d " style="{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(26.56deg) skewX(0deg) skewY(0deg);">	
+		<div class="plane" style="width: 559px; height: 250px; margin-left: -279.5px; margin-top: -125px;
+					{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(90deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+					background:url('./img/other/1.png')0px 0px/100% 100%;">	
+						<h1 style="text-align:center">3</h1>	
+					</div>				
+	 </div> 
+ </div>
+  <div class="object3d " style="{{prefix}}transform: translate3d(0px, 125px, 125px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">		
+	 <div class="object3d " style="{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(26.56deg) skewX(0deg) skewY(0deg);">	
+		<div class="plane" style="width: 559px; height: 250px; margin-left: -279.5px; margin-top: -125px;
+					{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(90deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+					background:url('./img/other/1.png')0px 0px/100% 100%;">	
+						<h1 style="text-align:center">6</h1>	
+					</div>				
+	 </div>
+	</div>	
+</div>		
+</div>
