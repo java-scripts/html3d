@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+<link rel="stylesheet" href="css/css3d.css">
+<style>
+
+@keyframes spin {
+   from {
+    transform: rotateY(0deg) translate3d(-1000px,0px,0px);
+  }
+  to {
+    transform: rotateY(720deg) translate3d(1000px,0px,0px);
+  }
+}
+.spin2 {
+  animation: spin 40s linear infinite;
+}
+
+.viewport{ {{prefix}}perspective: 700px;position:absolute;width:50%;}
+.space3d, .object3d, .plane{ {{prefix}}transform-style: preserve-3d;}
+.object3d { {{prefix}}transition: all 0.2s ease; }
+.plane{ /*{{prefix}}visibility: hidden;*/ }
+.console{position: absolute;z-index: 99999;left:410px;background: rgba(0, 0, 0, 0.5);  padding: 5px;  color: white;}
+</style>
+<script src="js/angular.min.js"></script>
+<script src="js/css3d.basic.js"></script>
+</head>	
+<body ng-controller="MainController" ng-keydown="keyDown($event);">
+	<canvas id="canvas" width="200" height="140" style="position: absolute;z-index: 99999;"></canvas>
+	<div class="console">
+		x:{{l.t.x|number:0}}
+y:{{l.t.y|number:0}}
+z:{{l.t.z|number:0}}
+ry:{{l.r.y}}
+	</div>		
+	<div class="container" ng-mousemove="updateR($event);">    	
+		<div class="viewport" style="perspective-origin:48%">	
+			<div class="space3d" ng-model="space3d" style="{{prefix}}transform: translate3d(0px, 100px, 700px) rotateX(-10deg) rotateY({{l.r.y}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+				<div ng-modlel="house" class="object3d" 
+				style="{{prefix}}transform: translate3d({{l.t.x}}px, {{l.t.y}}px, {{l.t.z}}px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	  				
+					<!--put 3d objects here-->	
+					<div ng-include="'objects/vr.html'" class="object3d" style="{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+					</div>	
+					<!-- 3d objects end-->					
+				</div>				
+			</div>
+		</div>
+		<div class="viewport" style="left:50%;perspective-origin:52%">	
+			<div class="space3d" ng-model="space3d" style="{{prefix}}transform: translate3d(0px, 100px, 700px) rotateX(-10deg) rotateY({{l.r.y}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+				<div ng-modlel="house" class="object3d" 
+				style="{{prefix}}transform: translate3d({{l.t.x}}px, {{l.t.y}}px, {{l.t.z}}px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">	  				
+					<!--put 3d objects here-->	
+					<div ng-include="'objects/vr.html'" class="object3d" style="{{prefix}}transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
+					</div>					
+					<!-- 3d objects end-->					
+				</div>				
+			</div>
+		</div>
+	</div>	
+  </body>
+ </html>
+ 
+ 
