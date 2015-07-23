@@ -26,15 +26,9 @@
 <script src="js/angular.min.js"></script>
 <script src="js/css3d.basic.js"></script>
 </head>	
-<body ng-controller="MainController" ng-keydown="keyDown($event);">
-	<canvas id="canvas" width="200" height="140" style="position: absolute;z-index: 99999;"></canvas>
-	<div class="console">
-		x:{{l.t.x|number:0}}
-y:{{l.t.y|number:0}}
-z:{{l.t.z|number:0}}
-ry:{{l.r.y}}
-	</div>		
-	<div class="container" ng-mousemove="updateR($event);">    	
+<body ng-controller="MainController">
+	<canvas id="canvas" width="200" height="140" style="position: absolute;z-index: 99999;"></canvas>		
+	<div class="container">    	
 		<div class="viewport" style="perspective-origin:48%">	
 			<div class="space3d" ng-model="space3d" style="{{prefix}}transform: translate3d(0px, 100px, 700px) rotateX(-10deg) rotateY({{l.r.y}}deg) rotateZ(0deg) skewX(0deg) skewY(0deg);">
 				<div ng-modlel="house" class="object3d" 
