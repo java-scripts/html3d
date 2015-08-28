@@ -18,11 +18,13 @@ margin: 20px;
 	
 	
 </div>
-<div class="modal fade in" id="myModal" data-backdrop="static" style="display: block;" ng-hide="os.hidehelp">
+<div class="modal fade in" data-backdrop="static" style="display: block;background:rgba(0,0,0,0.8)" ng-hide="os.hidehelp">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">       
-        <h2 class="modal-title"><span class="label label-warning col-md-12">Controls</span> </h2>
+      <div class="modal-header">  
+		 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="os.hidehelp=true;"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title"><span class="label label-warning col-md-12">Controls</span></h2>
+		
       </div>
       <div class="modal-body">
         
