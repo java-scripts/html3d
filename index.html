@@ -13,15 +13,16 @@
 .trans{ /*{{prefix}}transition: all 0.1s ease; */}
 .plane{ /*{{prefix}}visibility: hidden;*/ }
 .leftpanel{ background: rgba(255, 255, 255, 0.2);  padding: 1px; }
-.locator,.navigator{width: 175px;  height: 100%;  position: absolute;  padding: 2px;top: 175px; z-index: 99999;left: 20px;}
-.locator{top: 350px;}
-.hcontrol{ /*{{prefix}}transition: all 0.2s ease;*/}
+.locator,.navigator,.help{width: 175px;  height: 100%;  position: absolute;  padding: 2px;top: 175px; z-index: 99999;left: 20px;}
+.help{top:175px} .navigator{top:250px} .locator{top: 425px;} 
+.hcontrol{ cursor: crosshair;/*{{prefix}}transition: all 0.2s ease;*/}
 body{background:url('./img/c1/1.png')0px 0px/50% 100%;">}
 </style>
 </head>	
-<body ng-controller="css3dController" ng-keydown="keyDown($event);" ng-keyup="keyUp();">		
+<body ng-controller="css3dController" ng-keydown="keyDown($event);" ng-keyup="keyUp();" >		
 	<canvas class="surface" id="canvas" width="200" height="150" style="position: absolute;z-index: 99999;"></canvas>
 	<div class="console" ng-include="'objects/console.html'"></div>		
+	<div ng-controller="myController"  class="help" ng-include="'objects/help.html'"></div>	
 	<div ng-controller="myController"  class="navigator" ng-include="'objects/navigator.html'"></div>
 	<div ng-controller="myController"  class="locator" ng-include="'objects/locator.html'"></div>	
 	<div class="viewport-container" ng-mousemove="mouseMove($event);" ng-dblclick="dblClick()" >    	
