@@ -1,0 +1,65 @@
+<style>
+.card{
+margin: 20px;
+    border: 1px solid #DDD;
+    box-shadow: inset 2px 2px 2px;
+}
+</style>
+
+<div class="col-md-12">
+
+</div>
+<div class="row leftpanel">	
+	<div class="col-md-12">
+		<button class="btn btn-warning col-md-12" style="margin-top:5px" ng-click="os.hidehelp=false;">Controls</button>			
+		<h5> <span class="label  col-md-12" ng-class="{'label-danger':!hcontrol, 'label-success':hcontrol}">Manual Controls {{hcontrol?'Enabled':'Disabled'}} </span></h5>
+	</div>	
+	
+	
+	
+</div>
+<div class="modal fade in" id="myModal" data-backdrop="static" style="display: block;" ng-hide="os.hidehelp">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <h2 class="modal-title"><span class="label label-warning col-md-12">Controls</span> </h2>
+      </div>
+      <div class="modal-body">
+        
+			<div class="row">
+				<div class="col-md-12">
+				<h3> <span class="label label-default">Manual Controls</span></h3>
+				<p> Double click on screen to enable/disable Manual Controls</p>
+				<span class="label label-danger"> You can walk & look around only when manual controls are enabled </span>
+				
+				</div>
+				<div class="col-md-5 card">
+						<h3> <span class="label label-default pull-right">Move</span></h3>
+						<img src="./img/other/wasd.png">					
+				</div>
+				<div class="col-md-5 card">
+					<h3> <span class="label label-default pull-right">Look Around</span></h3>					
+					<img src="./img/other/mouse.png">
+					
+				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3> <span class="label label-default">Navigator</span></h3>
+					<p> Select start-location and destination and click Find to navigate</p>
+					
+					<h3> <span class="label label-default">Locator</span></h3>
+					<p> Select a location and click Find to reach</p>
+				</div>
+			</div>
+			
+			
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="os.hidehelp=true;">Close</button>        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
