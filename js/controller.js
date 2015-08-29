@@ -22,7 +22,7 @@ angular.module('css3d').controller('myController',['$scope',function(s){
 		s.$parent.hcontrol=false;
 		s.$parent.l.r.x=0;
 		cancelAnimFrame(animId);
-		nodes = findPath(s.os.startNode,s.os.endNode,0,[]).visited;		
+		nodes = findPath(s.os.startNode.name,s.os.endNode.name,0,[]).visited;		
 		keepgoing = true;		   
 		cnode = 0, step=0;
 		stepLength=10;//1: veryslow 100
@@ -31,7 +31,8 @@ angular.module('css3d').controller('myController',['$scope',function(s){
 	s.locateNode = function(){	
 		cancelAnimFrame(animId);
 		s.$parent.hcontrol=false;
-		var p = nodeMap[s.os.locateNode].p;		
+		console.log(s.os.locateNode)
+		var p = nodeMap[s.os.locateNode.name].p;		
 		s.$parent.l.t.x=p.x; s.$parent.l.t.y=p.y;s.$parent.l.t.z=p.z;
 		s.$parent.l.r.x=p.rx||0;	s.$parent.l.r.y=p.ry||0;
 		
@@ -62,7 +63,7 @@ angular.module('css3d').controller('myController',['$scope',function(s){
 		for(var name in nodeMap){
 			var node = nodeMap[name];
 			if(node.show){	
-				dropDownNodes.push(name);
+				dropDownNodes.push({name:name,label:node.label});
 			}	
 		}
 		return dropDownNodes;

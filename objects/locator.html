@@ -1,7 +1,9 @@
 <div class="row leftpanel">
 <div class="col-md-12"><h3> <span class="label label-default col-md-12">Locator</span></h3></div>
-	<div class="col-md-12">
-		<select  class="form-control"  ng-options="o for o in nodeMap" ng-model="os.locateNode"></select>
+	<div class="col-md-12">		
+		<select  class="form-control"  ng-options="node.label for node in nodeMap track by node.name" ng-model="os.locateNode">
+				<option value="">-- choose location --</option>
+		</select>
 	</div>
 	<div class="col-md-12">	
 		<button class="btn btn-primary col-md-12" style="margin-top:5px" ng-click="locateNode();">Find</button>	
